@@ -4,8 +4,6 @@
 
 > EasyAjax.js is a helper for companies / developers who want to build a 100% AJAX website with URL updating and form validation without page refresh. With just one function call, your website will have the full AJAX links without any other JavaScript instruction.
 
-[TOCM]
-
 ## Installation
 
 You can download the latest version of EasyAjax.js from the [GitHub Releases]() or use a [CDN]().
