@@ -6,9 +6,9 @@
 
 ## Installation
 
-You can download the latest version of EasyAjax.js from the [GitHub Releases]() or use a [CDN]().
+You can download the latest version of EasyAjax.js from the GitHub Releases or use a CDN.
 ```html
-<script src=""></script>
+<script src="https://cdn.jsdelivr.net/gh/mfcmatheus/EasyAjax.js@v1.0.0/resources/js/easyajax.js"></script>
 ```
 and init the plugin with following code:
 ```javascript
