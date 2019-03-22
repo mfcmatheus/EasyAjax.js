@@ -89,7 +89,7 @@
                 //If form is valid
                 if( confirmation ) {
 
-                    let data = Object.assign( {}, settings.forms.options.data, form.serialize() );
+                    let data = $.extend({}, objectifyForm(form.serializeArray()), settings.forms.options.data );
 
                     //Disable submit button
                     submit.prop( 'disabled', 'disabled' ).addClass( 'disabled' );
@@ -262,6 +262,15 @@
         }
 
         return indexes;
+    }
+
+    function objectifyForm(formArray) {
+
+        var returnArray = {};
+        for (var i = 0; i < formArray.length; i++){
+            returnArray[formArray[i]['name']] = formArray[i]['value'];
+        }
+        return returnArray;
     }
 
 }( jQuery ));
