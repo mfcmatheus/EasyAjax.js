@@ -225,7 +225,7 @@
                 let pattern = /^https?:\/\//i,
                     baseUrl = window.location.origin + window.location.pathname,
                     url = script.split("src=")[1];
-                    url = url.split( url.substring(0, 1) )[1];
+                    url = ((url !== undefined)?url.split( url.substring(0, 1) )[1]:"");
 
                 //Check if is RELATIVE url
                 if( !pattern.test( url ) ) {
