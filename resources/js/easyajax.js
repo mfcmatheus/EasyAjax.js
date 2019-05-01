@@ -32,7 +32,7 @@
         if( settings.navigation.active ) {
 
             //On click based in settings.selector
-            $( this ).on( 'click', settings.navigation.options.selector, function( event ) {
+            $( this ).off( 'click' ).on( 'click', settings.navigation.options.selector, function( event ) {
 
                 //Prevent default click action
                 event.preventDefault();
