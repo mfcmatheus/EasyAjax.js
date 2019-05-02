@@ -32,7 +32,7 @@
         if( settings.navigation.active ) {
 
             //On click based in settings.selector
-            $( this ).off( 'click' ).on( 'click', settings.navigation.options.selector, function( event ) {
+            $( this ).off( 'click', settings.navigation.options.selector ).on( 'click', settings.navigation.options.selector, function( event ) {
 
                 //Prevent default click action
                 event.preventDefault();
@@ -62,7 +62,7 @@
         //If forms module is active
         if( settings.forms.active ) {
 
-            $( this ).on( 'submit', settings.forms.options.selector, function( event ){
+            $( this ).off( 'submit', settings.forms.options.selector ).on( 'submit', settings.forms.options.selector, function( event ){
 
                 //Prevent default submit action
                 event.preventDefault();
