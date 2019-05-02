@@ -8,7 +8,7 @@
 
 You can download the latest version of EasyAjax.js from the GitHub Releases or use a CDN.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mfcmatheus/EasyAjax.js@v1.0.1/resources/js/easyajax.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mfcmatheus/EasyAjax.js@v1.0.4/resources/js/easyajax.js"></script>
 ```
 and init the plugin with following code:
 ```javascript
