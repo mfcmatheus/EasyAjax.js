@@ -8,7 +8,7 @@
 
 You can download the latest version of EasyAjax.js from the GitHub Releases or use a CDN.
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mfcmatheus/EasyAjax.js@v1.0.4/resources/js/easyajax.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mfcmatheus/EasyAjax.js/resources/js/easyajax.js"></script>
 ```
 and init the plugin with following code:
 ```javascript
@@ -67,6 +67,60 @@ navigation: {
 | `titleUpdate` | Bool | True | Indicates whether the browser **tab title** will change when redirecting to another page. |
 | `method` | String | 'GET' | Define the ajax send method. |
 | `data` | Object | {} | Data object to send to server. |
+
+#### Method: beforeCall()
+
+This function is called before the ajax call.
+
+Example:
+```javascript
+navigation: {
+    beforeCall: function() {
+        //Do something here ...
+    }
+}
+```
+
+#### Method: onPageLoad()
+
+This module is called immediately after the page loads successfully, so you can perform an action manually according to your needs.
+
+Example:
+```javascript
+navigation: {
+    onPageLoad: function( element, href ) {
+        //Do something here ...
+    }
+}       
+```
+
+This function returns two parameters:
+
+| Param | Type | Description |
+| ------------ | ------------ | ------------ |
+| element | jQuery Element | This parameter returns the element that was used to redirect to another page. |
+| href | string | TThe requested page link |
+
+#### Method: onError()
+
+This function is called if an error occurs in the call.
+
+Example:
+```javascript
+navigation: {
+    onError: function( jqXHR, textStatus, errorThrown ) {
+        //Do something here ...
+    }
+}
+```
+
+This function returns three parameters:
+
+| Param | Type | Description |
+| ------------ | ------------ | ------------ |
+| jqXHR | jqXHR | The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. |
+| textStatus | String | Possible values for the second argument (besides null) are `timeout`, `error`, `abort`, and `parsererror`. |
+| errorThrown | String | When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as `Not Found` or `Internal Server Error`. |
 
 ------------
 

@@ -14,7 +14,10 @@
                     titleUpdate: true,
                     method: 'GET',
                     data: {}
-                }
+                },
+                beforeCall: function() {},
+                onPageLoad: function( element, href ) {},
+                onError: function( jqXHR, textStatus, errorThrown ) {}
             },
             forms: {
                 active: true,
@@ -40,7 +43,7 @@
                 let element = $( this ),
                     href = element.attr( 'href' );
 
-                constructPage( href, settings );
+                constructPage( href, settings, element );
 
             });
 
@@ -53,7 +56,7 @@
                 //Get URL
                 let url = location.href;
 
-                constructPage( url, settings );
+                constructPage( url, settings, element );
 
             });
 
@@ -119,7 +122,7 @@
                                     //If navigation module is active
                                     if( settings.navigation.active ) {
 
-                                        constructPage( redirect, settings );
+                                        constructPage( redirect, settings, element );
 
                                     } else {
 
@@ -153,7 +156,7 @@
     };
 
     //Construct Page based on URL and SETTINGS
-    function constructPage( url, settings ) {
+    function constructPage( url, settings, element ) {
 
         $.ajax({
             async: true,
@@ -164,6 +167,9 @@
             beforeSend: function() {
 
                 $( 'body' ).addClass( 'loading' );
+
+                //Call outside function
+                settings.navigation.beforeCall.call('');
 
             },
             success: function( data ) {
@@ -202,6 +208,15 @@
 
                 //Update Title
                 if( settings.navigation.options.titleUpdate ) $( document ).attr( 'title', title );
+
+                //Call outsite function
+                settings.navigation.onPageLoad.call('', element, url);
+
+            },
+            error: function( jqXHR, textStatus, errorThrown ) {
+
+                //Call outside function
+                settings.navigation.onError( jqXHR, textStatus, errorThrown );
 
             }
         });
